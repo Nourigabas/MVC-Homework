@@ -1,0 +1,41 @@
+﻿@using Microsoft.AspNetCore.Mvc.Localization
+@inject IViewLocalizer localizer
+
+<header class="masthead">
+    <div class="container px-4 px-lg-5 h-100">
+        <div class="row gx-4 gx-lg-5 h-100 align-items-center justify-content-center text-center">
+            <div class="col-lg-8 align-self-end">
+                <h1 class="text-white font-weight-bold">Welcome to Nouri TV Services website</h1>
+                <hr class="divider" />
+            </div>
+            <div class="col-lg-8 align-self-baseline">
+                <p class="text-white-75 mb-5">To view the TVShow on Nouri’s website, click browse..!</p>
+                <p class="text-white-75 mb-5">For more services you must login...!</p>
+                <a></a>
+                <a class="btn btn-primary btn-xl" style="transform: scale(1); " asp-controller="TVShow" asp-action="Index">browse</a>
+                <a class="btn btn-primary btn-xl" style="transform: scale(1); " asp-controller="Login" asp-action="Index">Login</a>
+
+            </div>
+        </div>
+    </div>
+</header>
+@section footer {
+    <footer style="background-color: #A0522D; color: #fff; padding: 20px; text-align: center; margin: 0;">
+    <p>&copy;All rights reserved Nouri TV Show.</p>
+    <p style="color: #fff; margin: 0 10px; font-size: 16px;">
+        <strong>Tell Me</strong>
+    </p>
+
+    <p style="color: #fff; margin: 0 10px; font-size: 16px;">
+        <a href="mailto:nouryman999@gmail.com" style="color: #fff; text-decoration: underline;">
+            <i class="fas fa-envelope" style="margin-right: 5px;"></i> Gmail
+        </a>
+    </p>
+
+    <p style="color: #fff; margin: 0 10px; font-size: 16px;">
+        <a href="https://wa.me/qr/TWA4GWA3ZLOYA1" style="color: #fff; text-decoration: underline;">
+            <i class="fab fa-whatsapp" style="margin-right: 5px;"></i> WhatsApp
+        </a>
+        </footer>
+    </p>
+}

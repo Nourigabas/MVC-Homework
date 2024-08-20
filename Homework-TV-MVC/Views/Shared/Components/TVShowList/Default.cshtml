@@ -1,0 +1,48 @@
+﻿@using TV_Domain
+@model IList<TVShow>
+
+<div class="container px-4 px-lg-5 h-100">
+    <div class="row gx-4 gx-lg-5 h-100 align-items-center justify-content-center text-center">
+        <div class="col-12">
+            <h2 class="text-center mb-4" style="color: white;">Enter Information TV...!</h2>
+            <div class="d-flex flex-column align-items-center">
+                <p style="font-weight: bold; text-decoration: underline;">To view details of the TV station click on Show more button...!</p>
+                <p></p>
+                <p style="font-weight: bold; text-decoration: underline;">To add a new TV station, click on Add new TV station button...!</p>
+                <p></p>
+                <p style="font-weight: bold; text-decoration: underline;">To return to the home page, click on Return to page home button...!</p>
+
+                <div class="tv-show-list">
+                    @foreach (var item in Model)
+                    {
+                        <div class="tv-show-item" style="margin-bottom: 20px; border: 2px double black; padding: 10px; border-radius: 15px;">
+                            <div class="tv-show-image" style="text-align: center; margin-bottom: 10px;">
+                                <img class="img-fluid" style="border-radius: 15px;" src="@($"/imgs/TVShow/{item.Id}.{item.Attachment.FileType}")" />
+                            </div>
+                            <div class="tv-show-details" style="text-align: center;">
+                                <h4><span style="font-weight: bold; text-decoration: underline;">Title:</span>&nbsp;@item.Title</h4>
+                                <h4><span style="font-weight: bold; text-decoration: underline;">Release Date:</span>&nbsp;@item.ReleaseDate</h4>
+                                <h4><span style="font-weight: bold; text-decoration: underline;">Rating:</span>&nbsp;@item.Rating</h4>
+                                <a href="@item.URL"><span style="font-weight: bold; text-decoration: underline;">URL:</span>&nbsp;@item.URL</a>
+                                <p></p>
+                                <p></p>
+                                <url-with-slug asp-controller="TVShow"
+                                               asp-action="DetailsTVShow"
+                                               for-TVShow-Id="@item.Id"
+                                               for-TVShow-slug="@item.Rating.ToString().Replace(" ","-").ToLower()">
+                                    <button type="submit" class="btn btn-primary" style="background-color: #A0522D; border-color: #A0522D;">Show more</button>
+                                </url-with-slug>
+                            </div>
+                        </div>
+
+                    }
+                </div>
+
+
+                <p></p>
+                <p></p>
+                <a type="submit" asp-controller="Home" asp-action="index" class="btn btn-primary" style="background-color: #A0522D; border-color: #A0522D;">Return to page home</a>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,30 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portfolio</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Custom CSS -->
+</head>
+
+<body class="body_Show">
+    <header>
+        @await Component.InvokeAsync("TVShowList")
+        <p></p>
+        <p></p>
+        <div class="container px-4 px-lg-5 h-100">
+            <div class="row gx-4 gx-lg-5 h-100 align-items-center justify-content-center text-center">
+                <div class="col-12">
+                    <div class="d-flex flex-column align-items-center">
+                        <a type="submit" asp-controller="TVShow" asp-action="AddTVShow" class="btn btn-primary" style="background-color: #A0522D; border-color: #A0522D;">Add new TV station</a>
+                        <p></p>
+                        <a type="submit" asp-controller="Login" asp-action="logout" class="btn btn-primary" style="background-color: #A0522D; border-color: #A0522D;">logOut</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+</body>
+</html>
