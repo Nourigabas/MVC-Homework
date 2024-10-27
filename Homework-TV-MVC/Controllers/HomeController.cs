@@ -1,4 +1,3 @@
-using Homework_TV_MVC.Models;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Localization;
 using System.Diagnostics;
@@ -10,7 +9,7 @@ namespace Homework_TV_MVC.Controllers
         private readonly IStringLocalizer<HomeController> StringLocalizer;
         private readonly ILogger<HomeController> _logger;
 
-        public HomeController(ILogger<HomeController> logger , IStringLocalizer<HomeController> StringLocalizer)
+        public HomeController(ILogger<HomeController> logger, IStringLocalizer<HomeController> StringLocalizer)
         {
             this.StringLocalizer = StringLocalizer;
             _logger = logger;
@@ -21,8 +20,6 @@ namespace Homework_TV_MVC.Controllers
             ViewData["Message"] = StringLocalizer["greeting_message"];
             return View();
         }
-
-      
 
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
         public IActionResult Error()

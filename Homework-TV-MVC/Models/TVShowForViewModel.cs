@@ -4,10 +4,10 @@ namespace Homework_TV_MVC.Models
 {
     public class TVShowForViewModel
     {
-        public required Guid Id { get; set; }
-        public required string Title { get; set; }
-        public required DateTime ReleaseDate { get; set; }
-        public required ERating Rating { get; set; }
-        public required string URL { get; set; }
+        public Guid Id { get; set; }
+        public string Title { get; set; }
+        public DateTime ReleaseDate { get; set; }
+        public ERating Rating { get; set; }
+        public string URL { get; set; }
     }
 }

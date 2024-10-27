@@ -3,8 +3,6 @@ using Microsoft.AspNetCore.Authentication;
 using Microsoft.AspNetCore.Authentication.Cookies;
 using Microsoft.AspNetCore.Mvc;
 using System.Security.Claims;
-using System.Threading.Tasks;
-using System.Collections.Generic;
 
 namespace Homework_TV_MVC.Controllers
 {
@@ -14,6 +12,7 @@ namespace Homework_TV_MVC.Controllers
         {
             return View();
         }
+
         [ValidateAntiForgeryToken]
         [HttpPost]
         [Route("Login")]
@@ -32,7 +31,7 @@ namespace Homework_TV_MVC.Controllers
                     var claimsIdentity = new ClaimsIdentity(claims, CookieAuthenticationDefaults.AuthenticationScheme);
                     await HttpContext.SignInAsync(CookieAuthenticationDefaults.AuthenticationScheme, new ClaimsPrincipal(claimsIdentity));
 
-                    return RedirectToAction("HomeTVShow","TVShow");
+                    return RedirectToAction("HomeTVShow", "TVShow");
                 }
             }
             return View("Index");

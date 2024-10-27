@@ -1,11 +1,5 @@
 ﻿using Microsoft.AspNetCore.Http;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using TV_Domain;
-using static System.Net.Mime.MediaTypeNames;
 
 namespace TV_Infrastructure.Repository
 {
@@ -24,7 +18,7 @@ namespace TV_Infrastructure.Repository
                 string extension = Path.GetExtension(file.FileName);
 
                 Guid IdForNameImgAndAttachmentid = Guid.NewGuid();
-                //تغير اسم الصورة ل 
+                //تغير اسم الصورة ل
                 //TVShowId
                 string newFileName = TVShowId.ToString() + extension;
                 //تخزين المسار الذي سيتم حفظ فيه الصورة
@@ -33,7 +27,7 @@ namespace TV_Infrastructure.Repository
                 //ان لم يكون المجلد موجود يتم انشاءه
                 Directory.CreateDirectory(Path.GetDirectoryName(path));
 
-                //حفظ الصورة 
+                //حفظ الصورة
                 using (var fileStream = new FileStream(path, FileMode.Create))
                 {
                     file.CopyTo(fileStream);
@@ -68,11 +62,10 @@ namespace TV_Infrastructure.Repository
                 }
                 var attachment = All().Where(x => x.TVShowId == TVShowId).FirstOrDefault();
                 attachment.FileType = extension.Substring(1);
-                attachment.Name=OldName;
+                attachment.Name = OldName;
                 Update(attachment);
                 SaveChange();
             }
         }
-
     }
 }

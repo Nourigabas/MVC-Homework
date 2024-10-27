@@ -1,0 +1,121 @@
+﻿.con {
+    background-color: #f0f2f5;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.card-container {
+    background-color: #ffffff;
+    border-radius: 15px;
+    border: 2px solid #ddd;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.image-container {
+    margin-bottom: 1.5rem;
+    text-align: center;
+}
+
+.tv-show-image {
+    border-radius: 15px;
+    max-width: 100%;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.15);
+}
+
+.button-container {
+    margin-top: 1rem;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    align-items: center;
+    width: 100%;
+}
+
+.btn {
+    width: 80%;
+    font-size: 1.1em;
+    padding: 10px;
+    text-align: center;
+    border-radius: 5px;
+    text-decoration: none;
+    transition: background-color 0.3s ease, border-radius 0.3s ease;
+}
+
+.btn-update {
+    background-color: #A0522D;
+    border: 2px solid #A0522D;
+    color: #fff;
+}
+
+.btn-delete {
+    background-color: #dc3545;
+    color: #fff;
+}
+
+.btn-return {
+    background-color: #6c757d;
+    color: #fff;
+}
+
+    .btn-update:hover,
+    .btn-delete:hover,
+    .btn-return:hover {
+        opacity: 0.9;
+    }
+
+.btn-update:hover {
+    background-color: #A0522D;
+}
+
+.btn-delete:hover {
+    background-color: #dc3545;
+}
+
+.btn-return:hover {
+    background-color: #6c757d;
+}
+
+.btn-update:hover,
+.btn-delete:hover,
+.btn-return:hover {
+    border-radius: 15px;
+}
+
+.portfolio-details {
+    background-color: #fafafa;
+    border-radius: 15px;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+}
+
+.details-title {
+    font-weight: 600;
+    color: #333;
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+.details-list {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.detail-item {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.icon {
+    color: #A0522D;
+    font-size: 1.5em;
+}
+
+.url-link {
+    color: #007bff;
+    text-decoration: none;
+}
+
+    .url-link:hover {
+        text-decoration: underline; /* لإظهار خط تحت الرابط عند التحويم */
+    }

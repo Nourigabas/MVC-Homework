@@ -6,9 +6,10 @@ namespace Homework_TV_MVC.Models
     {
         [EmailAddress]
         [Required]
-        public required string Username { get; set; }
+        public string Username { get; set; }
+
         [DataType(DataType.Password)]
         [Required]
-        public required string Password { get; set; }
+        public string Password { get; set; }
     }
 }

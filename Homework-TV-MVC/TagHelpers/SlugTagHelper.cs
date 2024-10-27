@@ -7,13 +7,16 @@ using TV_Domain;
 namespace Homework_TV_MVC.TagHelpers
 {
     [HtmlTargetElement("url-with-slug")]
-    public class SlugTagHelper:AnchorTagHelper
+    public class SlugTagHelper : AnchorTagHelper
     {
-        public SlugTagHelper(IHtmlGenerator generator):base(generator)
-        {}
+        public SlugTagHelper(IHtmlGenerator generator) : base(generator)
+        { }
+
         public TVShow TVShow { get; set; }
+
         [HtmlAttributeName("for-TVShow-Id")]
         public Guid TVShowId { get; set; }
+
         [HtmlAttributeName("for-TVShow-slug")]
         public string slug { get; set; }
 

@@ -1,11 +1,4 @@
-﻿using Microsoft.EntityFrameworkCore;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace TV_Infrastructure.Repository
+﻿namespace TV_Infrastructure.Repository
 {
     public class GenericRepository<T> : IRepository<T> where T : class
     {
@@ -15,6 +8,7 @@ namespace TV_Infrastructure.Repository
         {
             this.TV_DBContext = TV_DBContext;
         }
+
         //public T Add(T entity)
         //{
         //    // إذا كان الكيان موجودًا بالفعل في DbContext، فصله
@@ -29,11 +23,9 @@ namespace TV_Infrastructure.Repository
         //}
         public T Add(T entity)
         {
-
             var newentity = TV_DBContext.Add(entity);
             return newentity.Entity;
         }
-
 
         public IList<T> All()
         {

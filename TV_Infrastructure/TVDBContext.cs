@@ -10,11 +10,13 @@ namespace TV_Infrastructure
         public DbSet<TVShow> TVShows { get; set; }
         public DbSet<Attachment> Attachments { get; set; }
         public DbSet<Languages> Languages { get; set; }
+
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
             optionsBuilder.UseSqlServer("Data Source=(localdb)\\MSSQLLocalDB;Initial Catalog=Homework_MVC_TV");
             base.OnConfiguring(optionsBuilder);
         }
+
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             modelBuilder.Entity<TVShow>()
@@ -29,13 +31,11 @@ namespace TV_Infrastructure
                         .HasForeignKey(tl => tl.TVShowID)
                         .OnDelete(DeleteBehavior.Restrict);
 
-
             modelBuilder.Entity<TVShowLanguages>()
                         .HasOne(tl => tl.Languages)
                         .WithMany(l => l.TVShowLanguages)
                         .HasForeignKey(tl => tl.LanguageID)
                         .OnDelete(DeleteBehavior.Restrict);
-
 
             modelBuilder.Entity<Languages>().HasData(
             new Languages
@@ -50,7 +50,6 @@ namespace TV_Infrastructure
                 Name = "Arabic",
                 IsDeleted = false
             });
-
 
             modelBuilder.Entity<TVShow>()
                         .Property(tv => tv.Rating)
@@ -71,13 +70,8 @@ namespace TV_Infrastructure
                             v => (ERating)Enum.Parse(typeof(ERating), v)
                         );
 
-
-
-
-
             base.OnModelCreating(modelBuilder);
         }
-
 
         public static void CreateInitialTestingDataBase(TVDBContext TV_DBContext)
         {
@@ -124,6 +118,5 @@ namespace TV_Infrastructure
 
             TV_DBContext.SaveChanges();
         }
-
     }
 }

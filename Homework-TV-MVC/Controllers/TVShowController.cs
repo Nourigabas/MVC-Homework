@@ -34,17 +34,14 @@ namespace Homework_TV_MVC.Controllers
             this.logger = logger;
         }
 
-
-
-
-        //تستخدم هذه ال 
-        //action 
+        //تستخدم هذه ال
+        //action
         //لعرض المحطات دون تسجيل الدخول
         [AllowAnonymous]
         [HttpGet]
         public IActionResult Index()
         {
-            //الجزء المعلق لم يتبقى له عمل بعد استخدام 
+            //الجزء المعلق لم يتبقى له عمل بعد استخدام
             //Component
 
             //var all = TVShowRepository.All();
@@ -52,17 +49,12 @@ namespace Homework_TV_MVC.Controllers
             //return View(TVShows);
 
             return View();
-
         }
 
-
-
-
-
-        //تستخدم هذه ال 
-        //action 
+        //تستخدم هذه ال
+        //action
         //لعرض المحطات مع تسجيل الدخول
-        //ومع بعض الاضافات 
+        //ومع بعض الاضافات
         //مثل امكانية اضافة جديد
         //عرض تفاصيل
         [HttpGet]
@@ -72,23 +64,15 @@ namespace Homework_TV_MVC.Controllers
             return View();
         }
 
-
-
-
-       
-
-
-
-
-
-        //استخدمها لعرض تفاصيل المحطة ومع بعض الاضافات الاخرى 
-        //التعديل 
+        //استخدمها لعرض تفاصيل المحطة ومع بعض الاضافات الاخرى
+        //التعديل
         //الحذف
+        [Authorize]
         [HttpGet]
         [Route("details/{TVShowId:Guid}/{slug:validateslug}")]
         public IActionResult DetailsTVShow(Guid TVShowId, string slug)
         {
-            //الملف معروض في الواجهة لذلك لا داعي لمناقشة حالة 
+            //الملف معروض في الواجهة لذلك لا داعي لمناقشة حالة
             //isdelete
             var TVShow = TVShowReposetory.GetItemWithAttachment(TVShowId);
             if (TVShow == null)
@@ -98,17 +82,14 @@ namespace Homework_TV_MVC.Controllers
             return View(TVShow);
         }
 
-
-        //تستخدم لعرض واجهة اضافة المنتج 
+        //تستخدم لعرض واجهة اضافة المنتج
         [Route("create")]
         public IActionResult AddTVShow()
         {
             return View("AddTVShow");
         }
 
-
-
-        //تستخدم لاستقبال المعلومات من صفحة اضافة المنتج والعمل عليها لاضافتها على قاعدة البيانات 
+        //تستخدم لاستقبال المعلومات من صفحة اضافة المنتج والعمل عليها لاضافتها على قاعدة البيانات
         [HttpGet]
         [TimerFilter]
         [ValidateAntiForgeryToken]
@@ -116,15 +97,15 @@ namespace Homework_TV_MVC.Controllers
         [Route("add")]
         public IActionResult add(CreateOrUpdateTVShow CreateOrUpdateTVShow)
         {
-            if (CreateOrUpdateTVShow.file==null)
+            if (CreateOrUpdateTVShow.file == null)
                 ModelState.AddModelError("Img", "You must upload the image");
             if (!ModelState.IsValid)
                 return View("HomeTVShow");
-            //تحويل المودل القادم من البارمتر الى الكيانات الاساسية 
+            //تحويل المودل القادم من البارمتر الى الكيانات الاساسية
             //TVShow
             //Languages
             //Attachment
-            //تخزين الصورة في ملف ضمن المشروع 
+            //تخزين الصورة في ملف ضمن المشروع
             //كل ذلك يتم عبر بعض الدوال التي تم استخدامها
             var TVShow = new TVShow()
             {
@@ -157,10 +138,7 @@ namespace Homework_TV_MVC.Controllers
             return View("HomeTVShow");
         }
 
-
-
-
-        //تستخدم لعرض واجهة تعديل المنتج 
+        //تستخدم لعرض واجهة تعديل المنتج
         [HttpGet]
         [Route("UpdateTVShow/{TVShowId:Guid}/{slug:validateslug}")]
         public IActionResult UpdateTVShow(Guid TVShowId, string slug)
@@ -170,17 +148,14 @@ namespace Homework_TV_MVC.Controllers
             return View("UpdateTVShow", TVShow);
         }
 
-
-
-
-        //تستخدم لاستقبال المعلومات من صفحة تعديل المنتج والعمل عليها لتحديثها في قاعدة البيانات 
+        //تستخدم لاستقبال المعلومات من صفحة تعديل المنتج والعمل عليها لتحديثها في قاعدة البيانات
         [TimerFilter]
         [ValidateAntiForgeryToken]
         [HttpPost]
         [Route("Update")]
         public IActionResult Update(CreateOrUpdateTVShow CreateOrUpdateTVShow)
         {
-            if(!ModelState.IsValid)
+            if (!ModelState.IsValid)
             {
                 return View("UpdateTVShow");
             }
@@ -208,15 +183,14 @@ namespace Homework_TV_MVC.Controllers
             TVShowReposetory.Update(TVShow);
             TVShowReposetory.SaveChange();
 
-
             if (CreateOrUpdateTVShow.file != null)
-            {  
+            {
                 //تحديد نوع - امتداد - الصورة -القديمة
                 string extension = Path.GetExtension(CreateOrUpdateTVShow.file.FileName);
-                //لحذف الصورة القديمة واذافة الصورة الجدية مكانها وبنفس الاسم السابق 
+                //لحذف الصورة القديمة واذافة الصورة الجدية مكانها وبنفس الاسم السابق
                 string NameOldImg = TVShow.Id.ToString() + extension;
 
-                string OldImgPath = "wwwroot/imgs/TVShow/" + NameOldImg; 
+                string OldImgPath = "wwwroot/imgs/TVShow/" + NameOldImg;
 
                 try
                 {
@@ -230,13 +204,10 @@ namespace Homework_TV_MVC.Controllers
             }
             SessionRepository.Remove("TVShowId");
             return View("HomeTVShow");
-
-
-
-
         }
+
         //لحذف المحطة
-        //عبر 
+        //عبر
         //isdeleted
         [HttpGet]
         [Route("delete")]

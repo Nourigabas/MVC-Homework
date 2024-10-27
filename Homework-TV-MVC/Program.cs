@@ -3,7 +3,6 @@ using Homework_TV_MVC.Repositories;
 using Homework_TV_MVC.Transformer;
 using Microsoft.AspNetCore.Authentication.Cookies;
 using Microsoft.AspNetCore.Localization;
-using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Options;
 using System.Globalization;
 using TV_Domain;
@@ -41,7 +40,6 @@ namespace Homework_TV_MVC
                 };
             });
 
-
             //authentication
             builder.Services.AddAuthentication(CookieAuthenticationDefaults.AuthenticationScheme)
                             .AddCookie(option =>
@@ -57,7 +55,6 @@ namespace Homework_TV_MVC
                 option.ConstraintMap["ValidateTransformerSlug"] = typeof(SlugParameterTransformer);
             });
 
-
             //register repository
             builder.Services.AddScoped<ITVShowLanguagesRepository, TVShowLanguagesRepository>();
             builder.Services.AddScoped<ILanguagesRepository, LanguagesRepository>();
@@ -70,17 +67,14 @@ namespace Homework_TV_MVC
             builder.Services.AddDbContext<TVDBContext>(ServiceLifetime.Scoped);
             builder.Services.AddTransient<ISessionRepository, SessionRepository>();
 
-            //التعامل مع ال 
-            //session 
-            //في حفظ البيانات لفترة 
+            //التعامل مع ال
+            //session
+            //في حفظ البيانات لفترة
             builder.Services.AddSession();
 
-
-
-            //التعامل مع 
+            //التعامل مع
             //logger
             builder.Services.AddLogging();
-
 
             var app = builder.Build();
 
@@ -94,9 +88,9 @@ namespace Homework_TV_MVC
                 var context = scoped.ServiceProvider.GetRequiredService<TVDBContext>();
                 TVDBContext.CreateInitialTestingDataBase(context);
             }
-            //جعلها 
-            //sission 
-            //كانها 
+            //جعلها
+            //sission
+            //كانها
             //middleware
             app.UseSession();
             app.UseHttpsRedirection();
@@ -104,11 +98,10 @@ namespace Homework_TV_MVC
 
             app.UseRouting();
             app.UseAuthorization();
-            //جعل خاصية تبيدل اللغات ك 
+            //جعل خاصية تبيدل اللغات ك
             //middleware
             var option = app.Services.GetService<IOptions<RequestLocalizationOptions>>();
             app.UseRequestLocalization(option.Value);
-
 
             app.MapControllerRoute(
                 name: "default",

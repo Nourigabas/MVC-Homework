@@ -8,6 +8,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Information Input Page</title>
     <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+
     <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
 </head>
 
@@ -21,49 +23,112 @@
                     <form asp-controller="TVShow" asp-action="Update" method="post" enctype="multipart/form-data">
 
                         @* Hidden fields *@
-                        <input type="hidden" class="form-control" id="releaseDate" value="@Model.ReleaseDate" name="CreateOrUpdateTVShow.TVShow.ReleaseDate">
-                        <input type="hidden" class="form-control" id="selection" readonly value="@Model.Rating" name="CreateOrUpdateTVShow.TVShow.Rating" />
+                        <input type="hidden"
+                               class="form-control"
+                               id="releaseDate"
+                               value="@Model.ReleaseDate"
+                               name="CreateOrUpdateTVShow.TVShow.ReleaseDate">
+
+                        <input type="hidden"
+                               class="form-control"
+                               id="selection"
+                               readonly value="@Model.Rating"
+                               name="CreateOrUpdateTVShow.TVShow.Rating" />
 
                         @* Title *@
                         <div class="form-group d-flex align-items-center">
-                            <label for="title" style="color: white; min-width: 100px;">Title</label>
-                            <input type="text" class="form-control" id="title" placeholder="Enter Title" value="@Model.Title" name="CreateOrUpdateTVShow.TVShow.Title" required>
+                            <label for="title"
+                                   style="color: white; min-width: 100px;">
+                                Title
+                            </label>
+
+
+                            <input type="text"
+                                   class="form-control"
+                                   id="title"
+                                   placeholder="Enter Title"
+                                   value="@Model.Title"
+                                   name="CreateOrUpdateTVShow.TVShow.Title"
+                                   required>
                         </div>
 
                         @* URL *@
                         <div class="form-group d-flex align-items-center">
-                            <label for="url" style="color: white; min-width: 100px;">URL</label>
-                            <input type="text" class="form-control" id="url" value="@Model.URL" placeholder="Enter URL" name="CreateOrUpdateTVShow.TVShow.URL" required>
+                            <label for="url"
+                                   style="color: white; min-width: 100px;">
+                                URL
+                            </label>
+                            <input type="text"
+                                   class="form-control"
+                                   id="url"
+                                   value="@Model.URL"
+                                   placeholder="Enter URL"
+                                   name="CreateOrUpdateTVShow.TVShow.URL"
+                                   required>
                         </div>
 
                         @* Languages *@
                         <div class="form-group d-flex align-items-center">
-                            <label style="color: white; min-width: 100px; font-size: 1 rem;">Language</label>
+                            <label style="color: white; min-width: 100px; font-size:1rem;">Language</label>
                             <div>
                                 <div class="form-check">
-                                    <input type="checkbox" class="form-check-input" id="languageEnglish" name="CreateOrUpdateTVShow.Languges.Languages[0]" value="English">
-                                    <label class="form-check-label" for="languageEnglish" style="color: white; font-size: 1.2rem;">English</label>
+                                    <input type="checkbox"
+                                           class="form-check-input"
+                                           id="languageEnglish"
+                                           name="CreateOrUpdateTVShow.Languges.Languages[0]"
+                                           value="English">
+                                    <label class="form-check-label"
+                                           for="languageEnglish"
+                                           style="color: white; font-size: 1.2rem;">
+                                        English
+                                    </label>
                                 </div>
                                 <div class="form-check">
-                                    <input type="checkbox" class="form-check-input" id="languageArabic" name="CreateOrUpdateTVShow.Languges.Languages[1]" value="Arabic">
-                                    <label class="form-check-label" for="languageArabic" style="color: white; font-size: 1.2rem;">Arabic</label>
+                                    <input type="checkbox"
+                                           class="form-check-input"
+                                           id="languageArabic"
+                                           name="CreateOrUpdateTVShow.Languges.Languages[1]"
+                                           value="Arabic">
+                                    <label class="form-check-label"
+                                           for="languageArabic"
+                                           style="color: white; font-size: 1.2rem;">
+                                        Arabic
+                                    </label>
                                 </div>
                             </div>
                         </div>
 
-                        <p class="text-white-75 mb-5">If you are uploading a new photo for the TV station, upload it to the box 👇🏻</p>
+                        <p class="text-white-75 mb-5">
+                            If you are uploading a new photo for the TV station, upload it to the box 👇🏻
+                        </p>
 
                         @* Image Upload *@
                         <div class="form-group d-flex align-items-center">
-                            <label for="imageUpload" style="color: white; min-width: 100px;">Choose an image</label>
-                            <input type="file" class="form-control" id="imageUpload" accept="image/*" name="CreateOrUpdateTVShow.file">
+                            <label for="imageUpload"
+                                   style="color: white; min-width: 100px;">
+                                Choose an image
+                            </label>
+                            <input type="file"
+                                   class="form-control"
+                                   id="imageUpload"
+                                   accept="image/*"
+                                   name="CreateOrUpdateTVShow.file">
                         </div>
 
-                        <button type="submit" class="btn btn-primary" style="background-color: #A0522D; border-color: #A0522D;">Save</button>
+                        <button type="submit"
+                                class="btn btn-primary"
+                                style="background-color: #A0522D; border-color: #A0522D;">
+                            Save
+                        </button>
                     </form>
                     <p></p>
                     <p></p>
-                    <a asp-controller="TVShow" asp-action="HomeTVShow" class="btn btn-primary" style="background-color: #A0522D; border-color: #A0522D;">Return to the TV stations page</a>
+                    <a asp-controller="TVShow"
+                       asp-action="HomeTVShow"
+                       class="btn btn-primary"
+                       style="background-color: #A0522D; border-color: #A0522D;">
+                        Return to the TV stations page
+                    </a>
                 </div>
 
             </div>

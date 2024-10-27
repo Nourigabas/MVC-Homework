@@ -5,26 +5,23 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Portfolio</title>
     <!-- Bootstrap CSS -->
+    <link href="https://fonts.googleapis.com/css?family=Playfair+Display:700,900&display=swap" rel="stylesheet" />
+    <link href="~/css/style.css" rel="stylesheet" />
     <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
     <!-- Custom CSS -->
 </head>
 
 <body class="body_Show">
-    <header>
+    <header style="text-align: center;">
         @await Component.InvokeAsync("TVShowList")
-        <p></p>
-        <p></p>
-        <div class="container px-4 px-lg-5 h-100">
-            <div class="row gx-4 gx-lg-5 h-100 align-items-center justify-content-center text-center">
-                <div class="col-12">
-                    <div class="d-flex flex-column align-items-center">
-                        <a type="submit" asp-controller="TVShow" asp-action="AddTVShow" class="btn btn-primary" style="background-color: #A0522D; border-color: #A0522D;">Add new TV station</a>
-                        <p></p>
-                        <a type="submit" asp-controller="Login" asp-action="logout" class="btn btn-primary" style="background-color: #A0522D; border-color: #A0522D;">logOut</a>
-                    </div>
-                </div>
-            </div>
+        <div style="display: flex; flex-direction: column; align-items: center; gap: 10px;">
+            <a type="submit" asp-controller="TVShow" asp-action="AddTVShow" class="button reservation">Add new TV station</a>
+            <a type="submit" asp-controller="Login" asp-action="logout" class="button reservation">logOut</a>
         </div>
     </header>
+
+
+    <footer class="footer_Show">
+    </footer>
 </body>
 </html>

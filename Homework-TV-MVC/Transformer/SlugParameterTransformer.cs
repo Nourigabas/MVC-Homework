@@ -4,8 +4,8 @@ namespace Homework_TV_MVC.Transformer
 {
     public class SlugParameterTransformer : IOutboundParameterTransformer
     {
-        //استبدال نص بآخر 
-        //اول محارف بآخرى 
+        //استبدال نص بآخر
+        //اول محارف بآخرى
         public string? TransformOutbound(object? value)
         {
             if (value is not string)

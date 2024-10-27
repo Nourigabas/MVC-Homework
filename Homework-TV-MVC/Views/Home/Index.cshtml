@@ -1,4 +1,7 @@
-﻿@using Microsoft.AspNetCore.Mvc.Localization
+﻿<link href="~/css/IndexTVShow.css" rel="stylesheet" />
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+
+@using Microsoft.AspNetCore.Mvc.Localization
 @inject IViewLocalizer localizer
 
 <header class="masthead">
@@ -12,30 +15,35 @@
                 <p class="text-white-75 mb-5">To view the TVShow on Nouri’s website, click browse..!</p>
                 <p class="text-white-75 mb-5">For more services you must login...!</p>
                 <a></a>
-                <a class="btn btn-primary btn-xl" style="transform: scale(1); " asp-controller="TVShow" asp-action="Index">browse</a>
-                <a class="btn btn-primary btn-xl" style="transform: scale(1); " asp-controller="Login" asp-action="Index">Login</a>
+                <a class="btn btn-primary btn-xl browse-button" asp-controller="TVShow" asp-action="Index">
+                    <i class="fas fa-search"></i> Browse
+                </a>
+                <a class="btn btn-primary btn-xl login-button" asp-controller="Login" asp-action="Index">
+                    <i class="fas fa-user"></i> Login
+                </a>
+
 
             </div>
         </div>
     </div>
 </header>
 @section footer {
-    <footer style="background-color: #A0522D; color: #fff; padding: 20px; text-align: center; margin: 0;">
-    <p>&copy;All rights reserved Nouri TV Show.</p>
-    <p style="color: #fff; margin: 0 10px; font-size: 16px;">
-        <strong>Tell Me</strong>
-    </p>
+    <footer class="footer">
+        <p class="footer-text">&copy; All rights reserved Nouri TV Show.</p>
 
-    <p style="color: #fff; margin: 0 10px; font-size: 16px;">
-        <a href="mailto:nouryman999@gmail.com" style="color: #fff; text-decoration: underline;">
-            <i class="fas fa-envelope" style="margin-right: 5px;"></i> Gmail
-        </a>
-    </p>
+        <p class="footer-highlight"><strong>Tell Me</strong></p>
 
-    <p style="color: #fff; margin: 0 10px; font-size: 16px;">
-        <a href="https://wa.me/qr/TWA4GWA3ZLOYA1" style="color: #fff; text-decoration: underline;">
-            <i class="fab fa-whatsapp" style="margin-right: 5px;"></i> WhatsApp
-        </a>
-        </footer>
-    </p>
+        <p class="footer-contact">
+            <a href="mailto:nouryman999@gmail.com" class="footer-link">
+                <i class="fas fa-envelope"></i> Gmail
+            </a>
+        </p>
+
+        <p class="footer-contact">
+            <a href="https://wa.me/qr/TWA4GWA3ZLOYA1" class="footer-link">
+                <i class="fab fa-whatsapp"></i> WhatsApp
+            </a>
+        </p>
+    </footer>
+
 }

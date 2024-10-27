@@ -7,23 +7,24 @@ using TV_Infrastructure.Repository;
 namespace Homework_TV_MVC.Components
 {
     [ViewComponent(Name = "TVShowList")]
-    public class TVShowListViewComponent:ViewComponent
+    public class TVShowListViewComponent : ViewComponent
     {
         private readonly ILogger<TVShowListViewComponent> Logger;
         private TVDBContext TVDBContext;
         private readonly IRepository<TVShow> TVShowRepository;
 
-        public TVShowListViewComponent(ILogger<TVShowListViewComponent>Logger,
-                                       IRepository<TVShow>TVShowRepository,
+        public TVShowListViewComponent(ILogger<TVShowListViewComponent> Logger,
+                                       IRepository<TVShow> TVShowRepository,
                                        TVDBContext TVDBContext)
         {
             this.Logger = Logger;
             this.TVDBContext = TVDBContext;
             this.TVShowRepository = TVShowRepository;
         }
+
         public async Task<IViewComponentResult> InvokeAsync()
         {
-            var TVShows = TVDBContext.TVShows.Include(a=>a.Attachment)
+            var TVShows = TVDBContext.TVShows.Include(a => a.Attachment)
                                              .Where(x => x.IsDeleted == false)
                                              .ToList();
             Logger.LogInformation($"We have {TVShows.Count} TVShows");
